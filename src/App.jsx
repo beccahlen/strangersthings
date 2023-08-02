@@ -11,8 +11,8 @@ function App() {
   return (
     <><Header />
     <NavBar />
-    {/* <LoginPage /> */}
-    <AllPosts />
+    <LoginPage />
+    {/* <AllPosts /> */}
     </>
   )
 }
