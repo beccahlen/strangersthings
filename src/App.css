@@ -22,14 +22,53 @@
   font-size: 15px;
 }
 
-.logout {
-  right: 100px;
+.loginPage {
+  position: absolute;
+  top: 50%;
+  left: 38%;
+  border: 2px solid black;
+  height: 100px;
+  width: 250px;
+  padding: 50px;
+}
+
+.loginText {
+  position: absolute;
+  top: 42%;
+  left: 38%;
+  height: 100px;
+  width: 250px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.btnLogin{
+  position: absolute;
+  top: 60%;
+  left: 35%;
+}
+
+.linksLogin {
+  position: absolute;
+  top: 81%;
+  left: 38%;
 }
 
 a:link {
-  color: white;
+  color:firebrick;
 }
 
 a:visited {
-  color: white;
+  color:firebrick;
+}
+
+.posts {
+  position:relative;
+  top: 12px;
+  font-size: 10px;
+  border: 1px solid black;
+  width: 75%;
+  height: 100%;
+
 }
