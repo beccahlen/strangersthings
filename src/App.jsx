@@ -4,6 +4,8 @@ import Header from './components/Header'
 import NavBar from './components/NavBar'
 import LoginPage from './components/LoginPage'
 import Registration from './components/RegistrationPage'
+import AllPosts from './components/AllPosts'
+import AddPost from './components/AddPost'
 import './App.css'
 
 function App() {
@@ -17,11 +19,13 @@ function App() {
     <>
     <Header />
     <NavBar />
-    {
+{/*     {
       currentForm === 'login' ? <LoginPage onFormSwitch={toggleForm} /> : <Registration />
-    }
+    } */}
 
-{/*     <AllPosts /> */}
+<Registration />
+  {/*   <AllPosts /> */}
+{/*     <AddPost /> */}
     </>
   )
 }
