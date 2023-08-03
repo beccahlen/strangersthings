@@ -1,18 +1,27 @@
+import React from 'react'
 import { useState } from 'react'
 import Header from './components/Header'
 import NavBar from './components/NavBar'
 import LoginPage from './components/LoginPage'
-import AllPosts from './components/AllPosts'
+import Registration from './components/RegistrationPage'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentForm, setCurrentForm] = useState('login');
+  const toggleForm = (forName) => {
+    setCurrentForm(forName);
+  }
+
 
   return (
-    <><Header />
+    <>
+    <Header />
     <NavBar />
-    <LoginPage />
-    {/* <AllPosts /> */}
+    {
+      currentForm === 'login' ? <LoginPage onFormSwitch={toggleForm} /> : <Registration />
+    }
+
+{/*     <AllPosts /> */}
     </>
   )
 }
