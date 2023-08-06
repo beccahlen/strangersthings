@@ -23,6 +23,7 @@ function AllPosts () {
         fetchData()
     }, [])
 
+
     console.log(allPosts)
 
     return <>

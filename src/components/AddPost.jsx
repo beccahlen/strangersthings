@@ -1,4 +1,5 @@
 import { useState } from "react"
+import '../App.css'
 
 function NewPost (){
         const [title, setTitle] = useState('')
@@ -30,7 +31,7 @@ function NewPost (){
           console.log(title, description)
           
             return (
-                <div className="Form">
+                <div className="Form"><h4>Add a post:</h4>
                   <form onSubmit={handleSubmit}>
                     <input
                       type="text"

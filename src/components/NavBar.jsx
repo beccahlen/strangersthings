@@ -1,19 +1,19 @@
 import React from "react";
-import { Routes, Route } from 'react-router-dom'
-import Home from "./Home";
+import { Link } from "react-router-dom";
+import '../App.css'
 import LoginPage from "./LoginPage";
+import Messages from "./Messages";
 import AllPosts from "./AllPosts";
 import Logout from "./Logout";
-import '../App.css'
 
 function NavBar () {
     return(
         <div className="navBar">
-          <a href="/">Home</a> &nbsp;
-          <a href="/">Log In</a> &nbsp;
-          <a href="/">Messages</a> &nbsp;
-          <a href="/">All Posts</a> &nbsp;
-          <a href="/">Log Out</a> &nbsp;
+            <Link to='/'>Home</Link> &nbsp; 
+            <Link to='/Login'>Login</Link> &nbsp; 
+            <Link to='/Profile'>Profile</Link> &nbsp; 
+            <Link to='/AllPosts'>All Posts</Link> &nbsp; 
+            <Link to='/Logout'>Log Out</Link>
         </div>
     )
 }

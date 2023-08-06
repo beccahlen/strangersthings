@@ -1,40 +1,55 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import LoginPage from "./LoginPage";
+import { useNavigate } from "react-router-dom";
 
-export default function RegistrationForm({ setToken }) {
+export default function RegistrationForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("")
+  const [token, setToken] = useState('')
   const [successMessage, setSuccessMessage] = useState("");
   const [error, setError] = useState(null);
+  const navigate = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault();
-    try {
-      const response = await fetch(
-        "https://strangers-things.herokuapp.com/api/2306-FTB-ET-WEB-FT/users/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username,
-            email,
-            password,
-          }),
+
+        if (error){
+            // DONT SUBMIT THE FORM
+            console.log('Did not send...')
+            return
         }
-      );
-      const result = await response.json();
-      console.log("Signup Result: ", result);
-      setToken(result.token);
-      setSuccessMessage(result.message);
-      setUsername("");
-      setEmail("");
-      setPassword("");
-    } catch (error) {
-      setError(error.message);
+
+        let response = await fetch('https://strangers-things.herokuapp.com/api/2306-FTB-ET-WEB-FT/users/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        })
+
+        console.log('-- SENT TO SERVER--')
+
+        let result = await response.json()
+
+        console.log('result:', result)
+        setToken(result.token) // add the token to state
+        // after token is set, navigate to dashboard
+        navigate('/')
+
     }
-  }
+    
+
+    function passwordValidation(event) {
+        let passwd = event.target.value
+        if (passwd.length < 4) {
+            setError('Password is too short!')
+        } else {
+            setError('')
+        }
+
+        setPassword(passwd)
+    }
+
 
   return (
     <div>
@@ -50,13 +65,6 @@ export default function RegistrationForm({ setToken }) {
           />
         </label>
         <label>
-          Email:{" "}
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label>
           Password:{" "}
           <input
             type="password"
@@ -68,6 +76,8 @@ export default function RegistrationForm({ setToken }) {
         </label>
         <button>Submit</button>
       </form>
+
+
     </div>
   );
 }
