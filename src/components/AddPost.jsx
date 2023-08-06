@@ -4,6 +4,7 @@ import '../App.css'
 function NewPost (){
         const [title, setTitle] = useState('')
         const [description, setDescription] = useState('')
+        const [price, setPrice] = useState('')
         const [message, setMessage] = useState('')
 
         let handleSubmit = async (e) => {
@@ -11,10 +12,18 @@ function NewPost (){
             try {
               let res = await fetch("https://strangers-things.herokuapp.com/api/2306-FTB-ET-WEB-FT/posts", {
                 method: "POST",
-                body: JSON.stringify({
-                  title: title,
-                  description: description,
-                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                  },
+                  body: JSON.stringify({
+                     post: {
+                        title: your_title_variable_here,
+                        description: your_description_variable_here,
+                        price: your_price_variable_here,
+                     }
+          
+           })
               });
               let resJson = await res.json();
               if (res.status === 200) {
@@ -44,6 +53,12 @@ function NewPost (){
                       value={description}
                       placeholder="Description"
                       onChange={(e) => setDescription(e.target.value)}
+                    />
+                      <input
+                      type="text"
+                      value={price}
+                      placeholder="Price"
+                      onChange={(e) => setPrice(e.target.value)}
                     />
 
                     <button type="submit">Create</button>

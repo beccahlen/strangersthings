@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import SearchBar from "./SearchBar"
 import '../App.css'
 
-function AllPosts () {
-    const [allPosts, setAllPosts] = useState([])
+function allPosts () {
+    const [posts, setPosts] = useState([])
+    const [searchResults, setSearchResults] = useState([])
     const [err, setError] = useState(null)
     const navigate = useNavigate();
 
@@ -13,7 +15,7 @@ function AllPosts () {
                 const response = await fetch('https://strangers-things.herokuapp.com/api/2306-FTB-ET-WEB-FT/posts')
                 const posts = await response.json()
 
-                setAllPosts(posts.data.posts)
+                setPosts(posts.data.posts)
 
             }
             catch(err) {
@@ -24,10 +26,12 @@ function AllPosts () {
     }, [])
 
 
-    console.log(allPosts)
+    console.log(posts)
 
-    return <>
- {allPosts.map((p, index) =>
+    return (<>
+<div className="searchBar">Search posts here: <SearchBar posts={posts} setSearchResults={setSearchResults}/></div>
+
+ {posts.map((p, index) =>
     <div key={index}
     className="posts"
     onClick={() => navigate(`/${p.id}`)}>
@@ -36,6 +40,7 @@ function AllPosts () {
     <h3>Username: {p.author.username}</h3>
     </div> )}
     </>
+    )
 }
 
-export default AllPosts
+export default allPosts

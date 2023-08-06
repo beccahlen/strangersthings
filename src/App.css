@@ -72,9 +72,19 @@ a:visited {
   color:firebrick;
 }
 
+.searchBar {
+  position:relative;
+  top: 110px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 15px;
+  border: 1px solid firebrick;
+  width: 75%;
+}
+
 .posts {
   position:relative;
-  top: 80px;
+  top: 120px;
   padding: 10px;
   margin: 10px;
   font-size: 15px;

@@ -25,12 +25,14 @@ function LoginPage () {
             return
         }
 
-        let response = await fetch('https://strangers-things.herokuapp.com/api/2306-FTB-ET-WEB-FT/users/register', {
+        let response = await fetch('https://strangers-things.herokuapp.com/api/2306-FTB-ET-WEB-FT/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({
+                user: {username, password 
+        }})
         })
 
         console.log('-- SENT TO SERVER--')

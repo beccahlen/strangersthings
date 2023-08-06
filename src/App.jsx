@@ -34,6 +34,8 @@ function App() {
           <Route path="/Registration" element={<RegistrationPage />}>Registration</Route> &nbsp;
           <Route path="/AllPosts" element={<AllPosts />}>Messages</Route> &nbsp;
           <Route path="/Logout" element={<Logout />}>Log Out</Route> &nbsp;
+
+          <Route path="/AddPost" element={<AddPost />}>Add post</Route>
           </Routes>
     </>
   )

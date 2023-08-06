@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import LoginPage from "./LoginPage";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function RegistrationForm() {
@@ -24,7 +25,10 @@ export default function RegistrationForm() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({
+              user: {
+              username, 
+              password } })
         })
 
         console.log('-- SENT TO SERVER--')
