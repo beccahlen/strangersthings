@@ -1,10 +1,13 @@
 import { useState } from "react"
+import LoginPage from "./LoginPage"
 import '../App.css'
 
 function NewPost (){
         const [title, setTitle] = useState('')
         const [description, setDescription] = useState('')
         const [price, setPrice] = useState('')
+        const [token, setToken] = useState('')
+        const [willDeliver, setWillDeliver] = useState(false)
         const [message, setMessage] = useState('')
 
         let handleSubmit = async (e) => {
@@ -18,9 +21,10 @@ function NewPost (){
                   },
                   body: JSON.stringify({
                      post: {
-                        title: your_title_variable_here,
-                        description: your_description_variable_here,
-                        price: your_price_variable_here,
+                        title: title,
+                        description: description,
+                        price: price,
+                        willDeliver: false,
                      }
           
            })
@@ -29,6 +33,9 @@ function NewPost (){
               if (res.status === 200) {
                 setTitle("");
                 setDescription("");
+                setPrice("");
+                setWillDeliver(false)
+                
               } else {
                 setMessage("Some error occured");
               }
@@ -38,8 +45,9 @@ function NewPost (){
           };
     
           console.log(title, description)
+ 
           
-            return (
+            return (<>
                 <div className="Form"><h4>Add a post:</h4>
                   <form onSubmit={handleSubmit}>
                     <input
@@ -59,13 +67,18 @@ function NewPost (){
                       value={price}
                       placeholder="Price"
                       onChange={(e) => setPrice(e.target.value)}
-                    />
+                    /><br/><h6>Check box below if delivery is an option: </h6> <input
+                      type="checkbox"
+                      value={willDeliver}
+                      placeholder="Will Deliver?"
+                      onChange={(e) => setWillDeliver(e.target.value)}
+                    /><br />
 
                     <button type="submit">Create</button>
             
                     <div className="message">{message ? <p>{message}</p> : null}</div>
                   </form>
-                </div>
+                </div></>
         )
     }
 

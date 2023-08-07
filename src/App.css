@@ -25,10 +25,12 @@
 }
 
 .welcomePage {
-  position: relative;
+  position: fixed;
   float: left;
-  top: 50%;
-  left: 50%;
+  top: 25%;
+text-align: center;
+border: 0px solid black;
+width: 100%;
 }
 
 .loginPage {
@@ -72,13 +74,21 @@ a:visited {
   color:firebrick;
 }
 
+.profileMsg{
+  position:fixed;
+  top: 150px;
+  left: 43%;
+  color:black;
+  font-size: medium;
+}
+
 .searchBar {
   position:relative;
   top: 110px;
-  padding: 10px;
+  padding: 0px;
   margin: 10px;
   font-size: 15px;
-  border: 1px solid firebrick;
+  border: 0px solid firebrick;
   width: 75%;
 }
 
@@ -97,10 +107,10 @@ a:visited {
 
 .Form {
   position: absolute;
-  top: 50%;
-  left: 38%;
-  border: 2px solid black;
+  top: 25%;
+
+  border: 0px solid black;
   height: 100px;
   width: 250px;
-  padding: 50px;
+  padding: 40px;
 }

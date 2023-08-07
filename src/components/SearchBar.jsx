@@ -1,7 +1,36 @@
 import React from "react"
-import AllPosts from "./AllPosts"
+import { useState } from "react"
 
-const SearchBar = ({allPosts, setSearchResults}) => {
+const SearchBar = () => {
+    const [input, setInput] = useState('')
+
+    const fetchData  = (value) =>{
+        fetch("https://strangers-things.herokuapp.com/api/2306-FTB-ET-WEB-FT/posts").then((response) => response.json()).then((json) => {
+            const results = json.filter((user) => {
+                return user && user.name && user.name.toLowerCase().includes(value)
+            })
+            console.log
+        })
+    }
+
+    const handleChange = (value) => {
+        setInput(value)
+        fetchData(value)
+    }
+
+    return(
+        <div className="searchBar2"><form className="search">
+            <input className="searchInput" type="text" id="search" value={input} onChange={e => handleChange(e.target.value)}
+            />
+            </form>
+            </div>
+    )
+}
+
+export default SearchBar
+
+
+/*     const [searchInput, setSearchInput] = useState("")
     const handleSubmit = (e) => e.preventDefault()
 
     const handleSearchChange = (e) => {
@@ -9,17 +38,4 @@ const SearchBar = ({allPosts, setSearchResults}) => {
 
         const resultsArray = posts.filter(post => post.title.includes(e.target.value)) || post.body.includes(e.target.value)
 
-        setSearchResults(results)
-    }
-
-    return(
-        <header><form className="search" onSubmit={handleSubmit}>
-            <input className="searchInput" type="text" id="search" onChange={handleSearchChange}
-            />
-            <button className="searchButton">Click</button>
-            </form>
-            </header>
-    )
-}
-
-export default SearchBar
+        setSearchResults(results) */

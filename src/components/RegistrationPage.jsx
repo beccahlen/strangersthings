@@ -38,7 +38,7 @@ export default function RegistrationForm() {
         console.log('result:', result)
         setToken(result.token) // add the token to state
         // after token is set, navigate to dashboard
-        navigate('/')
+        navigate('../Login')
 
     }
     

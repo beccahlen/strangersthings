@@ -29,7 +29,7 @@ function allPosts () {
     console.log(posts)
 
     return (<>
-<div className="searchBar">Search posts here: <SearchBar posts={posts} setSearchResults={setSearchResults}/></div>
+<div className="searchBar">Search posts here: <SearchBar/></div>
 
  {posts.map((p, index) =>
     <div key={index}

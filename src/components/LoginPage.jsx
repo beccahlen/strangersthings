@@ -39,9 +39,11 @@ function LoginPage () {
 
         let result = await response.json()
 
-        console.log('result:', result)
+        let user = JSON.parse(sessionStorage.getItem('data'));
+const token = result.token;
+/*         console.log('result:', result)
         setToken(result.token) // add the token to state
-        // after token is set, navigate to dashboard
+        // after token is set, navigate to dashboard */
         navigate('/Profile')
 
     }
