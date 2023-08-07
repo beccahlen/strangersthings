@@ -1,4 +1,20 @@
-import React from "react"
+import { useState } from "react"
+
+export default function SearchBar() {
+     const [search, setSearch] = useState('')
+     const handleChange = (e) => {
+       setSearch(e.target.value)
+     }
+     return (
+      <div>
+          <form>
+            <input type="search" value={search} onChange={handleChange}/>
+          </form>
+      </div>
+    )
+  }
+
+/* import React from "react"
 import { useState } from "react"
 
 const SearchBar = () => {
@@ -11,6 +27,7 @@ const SearchBar = () => {
             })
             console.log
         })
+        setResults(results)
     }
 
     const handleChange = (value) => {
@@ -27,7 +44,7 @@ const SearchBar = () => {
     )
 }
 
-export default SearchBar
+export default SearchBar */
 
 
 /*     const [searchInput, setSearchInput] = useState("")
