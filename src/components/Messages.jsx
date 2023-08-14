@@ -5,10 +5,10 @@ import '../App.css'
 
 //use token to see messages, dont need settoken will be just token
 
-function Messages () {
+function Messages ({token}) {
     return (
         <><div className="profileMsg">Welcome back to your profile!</div>
-            <h2><AddPost /></h2>
+            <h2><AddPost token={token} /></h2>
         </>
     )
 }

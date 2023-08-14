@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import SearchBar from "./SearchBar"
 import '../App.css'
 
-function allPosts () {
+function allPosts ({token}) {
     const [posts, setPosts] = useState([])
     const [searchResults, setSearchResults] = useState([])
     const [err, setError] = useState(null)
@@ -38,9 +38,16 @@ function allPosts () {
     <h2><u>{p.title}</u><br /><br />
     {p.description}<br /></h2>
     <h3>Username: {p.author.username}</h3>
+
+   {/*  onclick function responsible for sending delete request
+   conditionally render a delete button based off of 'isAuthor' */}
+    
     </div> )}
     </>
     )
+
+
 }
+
 
 export default allPosts

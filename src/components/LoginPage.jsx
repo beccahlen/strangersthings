@@ -5,10 +5,9 @@ import { useNavigate } from "react-router-dom";
 import RegistrationForm from "./RegistrationPage";
 import '../App.css'
 
-function LoginPage () {
+function LoginPage ({setToken}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [token, setToken] = useState('')
     const [error, setError] = useState('')
     const navigate = useNavigate()
 
@@ -24,7 +23,7 @@ function LoginPage () {
             console.log('Error, try again')
             return
         }
-
+console.log(username, password)
         let response = await fetch('https://strangers-things.herokuapp.com/api/2306-FTB-ET-WEB-FT/users/login', {
             method: 'POST',
             headers: {
@@ -32,18 +31,17 @@ function LoginPage () {
             },
             body: JSON.stringify({
                 user: {username, password 
-        }})
+            }})
         })
 
         console.log('-- SENT TO SERVER--')
 
         let result = await response.json()
-
+        console.log(result)
         let user = JSON.parse(sessionStorage.getItem('data'));
-const token = result.token;
-/*         console.log('result:', result)
-        setToken(result.token) // add the token to state
-        // after token is set, navigate to dashboard */
+const token = result.data.token;
+console.log(result.data.token)
+        setToken(result.data.token)
         navigate('/Profile')
 
     }

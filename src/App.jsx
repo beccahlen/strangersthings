@@ -26,16 +26,17 @@ function App() {
     <>
     <Header />
     <NavBar />
+    <p>{token}</p>
 
 <Routes>
-          <Route path="/Login" element={<LoginPage />}>Log In</Route> &nbsp;
+          <Route path="/Login" element={<LoginPage setToken={setToken} />}>Log In</Route> &nbsp;
           <Route path="/" element={<Home />}>Home</Route> &nbsp;
-          <Route path="/Profile" element={<Messages />}>Profile</Route> &nbsp;
-          <Route path="/Registration" element={<RegistrationPage />}>Registration</Route> &nbsp;
-          <Route path="/AllPosts" element={<AllPosts />}>Messages</Route> &nbsp;
+          <Route path="/Profile" element={<Messages token={token}/>}>Profile</Route> &nbsp;
+          <Route path="/Registration" element={<RegistrationPage setToken={setToken}/>}>Registration</Route> &nbsp;
+          <Route path="/AllPosts" element={<AllPosts token={token}/>}>Messages</Route> &nbsp;
           <Route path="/Logout" element={<Logout />}>Log Out</Route> &nbsp;
 
-          <Route path="/AddPost" element={<AddPost />}>Add post</Route>
+          <Route path="/AddPost" element={<AddPost token={token}/>}>Add post</Route>
           </Routes>
     </>
   )

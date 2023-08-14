@@ -3,10 +3,9 @@ import LoginPage from "./LoginPage";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function RegistrationForm() {
+export default function RegistrationForm({setToken}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState('')
   const [successMessage, setSuccessMessage] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate()

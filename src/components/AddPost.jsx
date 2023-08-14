@@ -2,16 +2,16 @@ import { useState } from "react"
 import LoginPage from "./LoginPage"
 import '../App.css'
 
-function NewPost (){
+function NewPost ({token}){
         const [title, setTitle] = useState('')
         const [description, setDescription] = useState('')
         const [price, setPrice] = useState('')
-        const [token, setToken] = useState('')
         const [willDeliver, setWillDeliver] = useState(false)
         const [message, setMessage] = useState('')
 
         let handleSubmit = async (e) => {
             e.preventDefault();
+            console.log(token)
             try {
               let res = await fetch("https://strangers-things.herokuapp.com/api/2306-FTB-ET-WEB-FT/posts", {
                 method: "POST",

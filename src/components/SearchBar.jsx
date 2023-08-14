@@ -14,6 +14,8 @@ export default function SearchBar() {
     )
   }
 
+// original and filtered copy of posts
+
 /* import React from "react"
 import { useState } from "react"
 
